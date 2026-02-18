@@ -145,7 +145,7 @@ export default function CustomCursor() {
       transition={{
         scale: { duration: 0.32, ease: [0.16, 1, 0.3, 1] },
         opacity: { duration: 0.24, ease: [0.16, 1, 0.3, 1] },
-        backgroundColor: { duration: 0.12, ease: 'easeOut' },
+        backgroundColor: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
       }}
     />
   )
