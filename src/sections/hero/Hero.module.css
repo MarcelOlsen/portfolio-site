@@ -1,0 +1,199 @@
+.section {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding-top: clamp(1.5rem, 2.5vw, 2rem);
+  padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
+  padding-left: clamp(2rem, 7vw, 8rem);
+  padding-right: clamp(2rem, 7vw, 8rem);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--color-ink-10);
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-38);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.dotHitArea {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  transform: translate(-9px, -9px);
+  z-index: 1;
+  cursor: none;
+  --dot-hold-progress: 0;
+}
+
+.dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--color-rust);
+  flex-shrink: 0;
+  display: inline-block;
+  animation: pulse 2.4s ease-in-out infinite;
+  transition: scale 0.2s ease;
+}
+
+@keyframes pulse {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.5; }
+}
+
+.dot::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--cursor-dot-size);
+  height: var(--cursor-dot-size);
+  border-radius: 50%;
+  background-color: var(--color-rust-30);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
+  transition: opacity 0.08s linear, transform 0.08s linear;
+  pointer-events: none;
+}
+
+.dotActive {
+  animation-play-state: paused;
+  scale: calc(1 + (var(--dot-hold-progress) * 0.8));
+}
+
+.dotActive::before {
+  opacity: calc(0.18 + (var(--dot-hold-progress) * 0.27));
+  transform: translate(-50%, -50%) scale(calc(1 + (var(--dot-hold-progress) * 3)));
+}
+
+.statusTextWrap {
+  display: grid;
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+}
+
+.statusText {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  text-align: right;
+  justify-self: end;
+  width: max-content;
+}
+
+.easterEgg {
+  color: var(--color-rust);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.headlineArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-28);
+  margin-bottom: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-ink-10);
+  display: block;
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  font-weight: 300;
+  line-height: 1.1;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  width: fit-content;
+  overflow: visible;
+  background-image: radial-gradient(
+    circle 280px at var(--glow-x, -999px) var(--glow-y, -999px),
+    var(--color-ink) 0%,
+    var(--color-ink-16) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.28em;
+  padding-bottom: 0.05em;
+}
+
+@media (max-width: 600px) {
+  .headline {
+    background-image: none;
+    -webkit-text-fill-color: var(--color-ink);
+  }
+}
+
+.footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-ink-12);
+  padding-top: 1.25rem;
+}
+
+.scrollHint {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-32);
+}
+
+.disciplines {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-32);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .disciplines {
+    display: none;
+  }
+}

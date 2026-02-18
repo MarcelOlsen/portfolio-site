@@ -1,0 +1,29 @@
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--color-rust);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.3rem 0.18rem;
+  margin: -0.35rem -0.3rem -0.18rem;
+  border-radius: 2px;
+}
+
+.underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-rust);
+  transform-origin: left center;
+  pointer-events: none;
+}

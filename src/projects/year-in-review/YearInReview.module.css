@@ -1,0 +1,125 @@
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 6vw, 7.5rem);
+  font-weight: 300;
+  line-height: 0.93;
+  color: var(--color-ink);
+  font-style: italic;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.titleCol {
+  width: 100%;
+}
+
+.titleLead {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(16rem, 28ch);
+  align-items: start;
+  justify-content: space-between;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.dek {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  max-width: 28ch;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: justify;
+  text-wrap: pretty;
+  color: var(--color-ink-38);
+}
+
+@media (max-width: 980px) {
+  .titleLead {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .dek {
+    max-width: 44ch;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.videoBg {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-ink-04);
+  border: 1px solid var(--color-ink-08);
+  overflow: hidden;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  position: relative;
+  cursor: none;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.videoVisible {
+  opacity: 1;
+}
+
+.soundHint {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-bg-80);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 0.75rem;
+  pointer-events: none;
+  interpolate-size: allow-keywords;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  width: auto;
+}
+
+.soundHintText {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-50);
+  white-space: nowrap;
+}
+
+.soundBars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 8px;
+}
+
+.soundBar {
+  width: 2px;
+  height: 100%;
+  background-color: var(--color-rust);
+  transform-origin: bottom;
+  border-radius: 1px;
+  transition: transform 0.04s linear;
+}
+
+.videoBg:hover .soundHint {
+  opacity: 1 !important;
+}

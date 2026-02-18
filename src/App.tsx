@@ -1,10 +1,11 @@
-import CustomCursor from './components/CustomCursor'
-import Hero from './components/Hero'
-import SectionDivider from './components/SectionDivider'
-import About from './components/About'
-import WorkProject1 from './components/WorkProject1'
-import WorkProject2 from './components/WorkProject2'
-import Contact from './components/Contact'
+import CustomCursor from './ui/CustomCursor/CustomCursor'
+import Hero from './sections/hero/Hero'
+import SectionDivider from './ui/SectionDivider/SectionDivider'
+import About from './sections/about/About'
+import StateOfAi from './projects/state-of-ai/StateOfAi'
+import YearInReview from './projects/year-in-review/YearInReview'
+import MiniReact from './projects/mini-react/MiniReact'
+import Contact from './sections/contact/Contact'
 
 export default function App() {
   return (
@@ -14,10 +15,11 @@ export default function App() {
       <SectionDivider />
       <About />
       <SectionDivider />
-      <WorkProject1 />
+      <StateOfAi />
       <SectionDivider />
-      <WorkProject2 />
+      <YearInReview />
       <SectionDivider />
+      <MiniReact />
       <Contact />
     </>
   )

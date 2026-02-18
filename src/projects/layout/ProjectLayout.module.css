@@ -1,0 +1,122 @@
+.section {
+  --_border: var(--color-ink-10);
+  --_rule: var(--color-ink-10);
+  --_meta-border: var(--color-ink-08);
+  --_meta-key: var(--color-ink-25);
+  --_meta-val: var(--color-ink-55);
+  --_year: var(--color-ink-22);
+  --_section-meta: var(--color-ink-25);
+  background-color: var(--color-bg);
+  padding-top: clamp(6rem, 12vw, 11rem);
+  padding-bottom: clamp(6rem, 12vw, 11rem);
+  padding-left: clamp(2rem, 7vw, 8rem);
+  padding-right: clamp(2rem, 7vw, 8rem);
+}
+
+.section[data-theme="dark"] {
+  --_border: var(--color-bg-12);
+  --_rule: var(--color-bg-10);
+  --_meta-border: var(--color-bg-08);
+  --_meta-key: var(--color-bg-25);
+  --_meta-val: var(--color-bg-60);
+  --_year: var(--color-bg-22);
+  --_section-meta: var(--color-bg-25);
+  background-color: var(--color-ink);
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+  border-bottom: 1px solid var(--_border);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: end;
+}
+
+.rule {
+  background-color: var(--_rule);
+  align-self: stretch;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .rule {
+    display: none;
+  }
+}
+
+/* Common typography */
+.indexLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-rust);
+}
+
+.year {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--_year);
+}
+
+/* Meta list styles */
+.metaGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaRow {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--_meta-border);
+}
+
+.metaKey {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--_meta-key);
+}
+
+.metaVal {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--_meta-val);
+}
+
+/* Section meta labels */
+.sectionMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--_section-meta);
+}
+
+/* Right column layout */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 0.25rem;
+}
