@@ -5,6 +5,6 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "preview": "python3 -m http.server 4173 --directory dist",
-    "deploy": "npm run build && npx --yes wrangler@4.115.0 pages deploy dist --project-name marcelolsen --branch production"
+    "deploy": "npm run build && npx --yes wrangler@4.115.0 pages deploy dist --project-name marcelolsen --branch master"
   }
 }
