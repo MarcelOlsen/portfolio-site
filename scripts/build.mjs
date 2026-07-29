@@ -23,6 +23,10 @@ const assets = [
   'videos/yir-poster.jpg',
 ];
 
+const stableAssets = [
+  { source: 'public/dot.gif', output: 'dot.gif' },
+];
+
 function contentHash(contents) {
   return createHash('sha256').update(contents).digest('hex').slice(0, 10);
 }
@@ -65,6 +69,15 @@ for (const sourcePath of assets) {
   await mkdir(dirname(absoluteOutput), { recursive: true });
   await copyFile(absoluteSource, absoluteOutput);
   outputAssets.push({ path: outputPath, bytes: contents.length });
+}
+
+for (const asset of stableAssets) {
+  const absoluteSource = join(projectRoot, asset.source);
+  const absoluteOutput = join(stagingPath, asset.output);
+  await assertFile(absoluteSource);
+  await mkdir(dirname(absoluteOutput), { recursive: true });
+  await copyFile(absoluteSource, absoluteOutput);
+  outputAssets.push({ path: asset.output, bytes: (await stat(absoluteSource)).size });
 }
 
 for (const sourcePath of assets) {
