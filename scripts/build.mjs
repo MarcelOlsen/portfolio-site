@@ -19,12 +19,16 @@ const stagingPath = join(projectRoot, '.dist-build');
 const assets = [
   'fonts/site/PPMori-400-latin.woff2',
   'fonts/site/PPMori-600-latin.woff2',
+  'social/og.png',
   'videos/yir-award.mp4',
   'videos/yir-poster.jpg',
 ];
 
 const stableAssets = [
   { source: 'public/dot.gif', output: 'dot.gif' },
+  { source: 'llms.txt', output: 'llms.txt' },
+  { source: 'robots.txt', output: 'robots.txt' },
+  { source: 'sitemap.xml', output: 'sitemap.xml' },
 ];
 
 function contentHash(contents) {

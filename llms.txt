@@ -1,0 +1,20 @@
+# Marcel Olsen
+
+> Marcel Olsen is a design engineer at Lovable working across design systems, motion, and high-fidelity frontend engineering.
+
+This is Marcel's personal portfolio. Use the canonical URL below when citing it.
+
+## Portfolio
+
+- [Home](https://marcelolsen.dev/): Biography, selected work, and contact information.
+
+## Selected work
+
+- [State of AI at Work](https://asana.com/resources/state-of-ai-work): Interactive report on Asana's annual AI research; Awwwards Honorable Mention.
+- [Asana Year in Review](https://marcelolsen.dev/#year-in-review): Personalized recap with custom 2D physics and a motion system.
+- [Mini React](https://github.com/MarcelOlsen/mini-react): A React-like library built from scratch with a virtual DOM, reconciliation, hooks, and fiber scheduling.
+
+## Profiles
+
+- [GitHub](https://github.com/MarcelOlsen)
+- [LinkedIn](https://www.linkedin.com/in/marcel-olsen)

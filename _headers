@@ -13,7 +13,19 @@
 /dot.gif
   Cache-Control: public, max-age=86400
 
+/llms.txt
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
 /fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/social/*
   Cache-Control: public, max-age=31536000, immutable
 
 /videos/*
