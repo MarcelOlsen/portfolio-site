@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Marcel Olsen — Design Engineer</title>
-  <meta name="description" content="Marcel Olsen is a design engineer at Lovable, working across design systems, motion, and high-fidelity frontend engineering.">
+  <meta name="description" content="Marcel Olsen is a design engineer at Lovable, working across design systems, frontend tooling, and product engineering.">
   <link rel="canonical" href="https://marcelolsen.dev/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://marcelolsen.dev/">
   <meta property="og:title" content="Marcel Olsen — Design Engineer">
-  <meta property="og:description" content="Design engineer at Lovable, working across design systems, motion, and high-fidelity frontend engineering.">
+  <meta property="og:description" content="Design engineer at Lovable. Design systems, frontend tooling, and product engineering.">
   <meta property="og:image" content="https://marcelolsen.dev/social/og.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Marcel Olsen, Design Engineer at Lovable">
+  <meta property="og:video" content="https://marcelolsen.dev/social/og.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video:width" content="1200">
+  <meta property="og:video:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Marcel Olsen — Design Engineer">
-  <meta name="twitter:description" content="Design engineer at Lovable, working across design systems, motion, and high-fidelity frontend engineering.">
+  <meta name="twitter:description" content="Design engineer at Lovable. Design systems, frontend tooling, and product engineering.">
   <meta name="twitter:image" content="https://marcelolsen.dev/social/og.png">
   <meta name="twitter:image:alt" content="Marcel Olsen, Design Engineer at Lovable">
   <meta name="theme-color" content="#fafbfc">
@@ -153,7 +157,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5em;
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: 600;
       letter-spacing: -0.015em;
     }
@@ -172,6 +176,7 @@
     .role {
       color: var(--muted);
       margin-top: 2px;
+      font-size: 0.9375rem;
     }
 
     .company-link {
@@ -182,17 +187,21 @@
       text-decoration-thickness: 1px;
       text-underline-offset: 0.18em;
       text-decoration-skip-ink: auto;
-      transition: text-decoration-color 120ms var(--ease-out);
+      transition: color 180ms var(--ease-out), text-decoration-color 180ms var(--ease-out);
     }
 
     .company-link::after {
-      content: " ↗";
+      content: "↗";
+      display: inline-block;
+      margin-left: 0.25em;
       color: currentColor;
       font-size: 0.78em;
+      transition: transform 200ms var(--ease);
     }
 
     @media (hover: hover) and (pointer: fine) {
       .company-link:hover { text-decoration-color: currentColor; }
+      .company-link:hover::after { transform: translate(2px, -2px); }
     }
 
     .company-link:focus-visible { text-decoration-color: currentColor; }
@@ -215,7 +224,7 @@
 
     .section-label {
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--muted);
       letter-spacing: 0;
       margin-bottom: 6px;
@@ -235,7 +244,12 @@
     a.row,
     button.row,
     .project-preview > .row {
-      transition: background-color 160ms ease;
+      transition: background-color 180ms var(--ease-out);
+    }
+
+    a.row:focus-visible,
+    button.row:focus-visible {
+      background: var(--wash);
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -246,6 +260,11 @@
       }
 
       a.row:hover .row-arrow { transform: translate(2px, -2px); }
+    }
+
+    a.row:active,
+    button.row:active {
+      background: color-mix(in oklch, var(--ink) 7%, transparent);
     }
 
     .row-top {
@@ -266,20 +285,21 @@
       color: var(--muted);
       margin-left: 4px;
       transform: translate(0, 0);
-      transition: transform 200ms var(--ease);
+      transition: transform 200ms var(--ease), color 180ms var(--ease-out);
     }
 
     .row-year {
       color: var(--muted);
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       font-variant-numeric: tabular-nums;
       flex-shrink: 0;
     }
 
     .row-desc {
+      display: block;
       color: var(--muted);
       font-size: 0.9375rem;
-      margin-top: 2px;
+      margin-top: 4px;
       max-width: 30em;
       text-wrap: pretty;
     }
@@ -485,6 +505,9 @@
     @media (prefers-reduced-motion: reduce) {
       [data-animate] { animation: none; }
       .company-link,
+      .company-link::after,
+      .row-title,
+      .contact-value,
       .row-hint,
       .row-hint-state,
       .row-arrow,
@@ -535,9 +558,8 @@
       <h1 class="name" data-animate style="--d: 0ms"><span class="name-dot" aria-hidden="true"></span>Marcel Olsen</h1>
       <p class="role" data-animate style="--d: 50ms">Design Engineer at <a class="company-link" href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a></p>
       <p class="intro" data-animate style="--d: 100ms">
-        I work across design systems, motion, and high-fidelity frontend engineering.
-        Previously a creative technologist at <a class="company-link" href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, I shipped interactive experiences used
-        by millions. I care about performance and the details people feel before they notice.
+        Design systems, frontend tooling, and product engineering.
+        Previously at <a class="company-link" href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>.
       </p>
     </header>
 
@@ -551,7 +573,7 @@
                 <span class="row-title">State of AI at Work<span class="row-arrow" aria-hidden="true">&#8599;</span></span>
                 <time class="row-year" datetime="2025">2025</time>
               </span>
-              <span class="row-desc">Interactive report on Asana's annual AI research. Awwwards Honorable Mention.</span>
+              <span class="row-desc">Asana's annual AI research, made interactive.</span>
             </a>
           </li>
           <li id="year-in-review" class="project-preview" data-yir-preview-target>
@@ -566,7 +588,7 @@
                   <time class="row-year" datetime="2025">2025</time>
                 </span>
               </span>
-              <span class="row-desc">Personalized recap across a 12-slide, reels-like experience. Custom 2D physics and a motion system built end to end.</span>
+              <span class="row-desc">A personalised year in review, built with custom physics and motion.</span>
             </div>
           </li>
           <li>
@@ -575,7 +597,7 @@
                 <span class="row-title">Mini React<span class="row-arrow" aria-hidden="true">&#8599;</span></span>
                 <span class="row-year">Ongoing</span>
               </span>
-              <span class="row-desc">A React-like library built from scratch: virtual DOM, reconciliation, hooks, fiber scheduling.</span>
+              <span class="row-desc">A React-like renderer built from scratch.</span>
             </a>
           </li>
         </ul>
@@ -615,7 +637,7 @@
     </main>
 
     <footer data-animate style="--d: 270ms">
-      <span>&copy; <span id="year">2026</span> Marcel Olsen</span>
+      <span>Marcel Olsen</span>
       <span class="sr-only sr-status" role="status" aria-live="polite"></span>
     </footer>
   </div>
@@ -900,9 +922,6 @@
         if (document.hidden) hidePreview();
       });
     })();
-
-    // ---------- Current year ----------
-    document.getElementById('year').textContent = new Date().getFullYear();
 
     // ---------- Copy email (address assembled from parts to keep scrapers honest) ----------
     var copyButton = document.querySelector('[data-copy-email]');

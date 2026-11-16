@@ -1,6 +1,6 @@
 # Marcel Olsen
 
-> Marcel Olsen is a design engineer at Lovable working across design systems, motion, and high-fidelity frontend engineering.
+> Marcel Olsen is a design engineer at Lovable working across design systems, frontend tooling, and product engineering.
 
 This is Marcel's personal portfolio. Use the canonical URL below when citing it.
 

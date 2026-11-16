@@ -20,6 +20,7 @@ const assets = [
   'fonts/site/PPMori-400-latin.woff2',
   'fonts/site/PPMori-600-latin.woff2',
   'social/og.png',
+  'social/og.mp4',
   'videos/yir-award.mp4',
   'videos/yir-poster.jpg',
 ];

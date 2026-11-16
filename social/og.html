@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Source for og.png and og.mp4. Regenerate from the repo root:
+  C="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  "$C" --headless --hide-scrollbars --window-size=1200,630 --screenshot=social/og.png social/og.html
+  mkdir -p /tmp/og && for i in $(seq 0 89); do "$C" --headless --hide-scrollbars --window-size=1200,630 \
+    --screenshot=/tmp/og/$(printf %03d $i).png "file://$PWD/social/og.html?t=$((i*1000/30))"; done
+  ffmpeg -y -framerate 30 -i /tmp/og/%03d.png -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \
+    -movflags +faststart social/og.mp4 -->
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Mori; font-weight: 400; src: url("../fonts/site/PPMori-400-latin.woff2"); }
+  @font-face { font-family: Mori; font-weight: 600; src: url("../fonts/site/PPMori-600-latin.woff2"); }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: oklch(0.985 0.002 250);
+    color: oklch(0.205 0.007 250);
+    font-family: Mori, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 120px;
+    box-sizing: border-box;
+  }
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    font-size: 76px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+  h1::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: oklch(0.525 0.13 31);
+  }
+  p {
+    margin: 14px 0 0 50px;
+    font-size: 36px;
+    color: oklch(0.47 0.007 250);
+    letter-spacing: -0.01em;
+  }
+  /* Same entrance as the site. Frozen at ?t=<ms> so each video frame is a screenshot. */
+  @keyframes enter { from { opacity: 0; transform: translateY(16px); } }
+  h1, p {
+    animation: enter 800ms cubic-bezier(0.22, 1, 0.36, 1) both paused;
+    animation-delay: calc(var(--d) - var(--t, 10000ms));
+  }
+  h1 { --d: 200ms; }
+  p { --d: 320ms; }
+</style>
+<script>
+  const t = new URLSearchParams(location.search).get('t');
+  if (t) document.documentElement.style.setProperty('--t', t + 'ms');
+</script>
+<h1>Marcel Olsen</h1>
+<p>Design Engineer at Lovable</p>
