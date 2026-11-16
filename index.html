@@ -675,6 +675,8 @@
       var positionFrame = 0;
       var videoFrame = 0;
       var videoFrameUsesRaf = false;
+      var previewWidth = 0;
+      var previewHeight = 0;
 
       function createChromaKeyRenderer() {
         var gl = canvas.getContext('webgl', {
@@ -753,8 +755,8 @@
 
         return function (source) {
           var scale = Math.min(window.devicePixelRatio || 1, 2);
-          var width = Math.max(1, Math.round(preview.clientWidth * scale));
-          var height = Math.max(1, Math.round(preview.clientHeight * scale));
+          var width = Math.max(1, Math.round(previewWidth * scale));
+          var height = Math.max(1, Math.round(previewHeight * scale));
 
           if (canvas.width !== width || canvas.height !== height) {
             canvas.width = width;
@@ -792,22 +794,26 @@
         });
       }
 
+      // Size is fixed while visible (resize hides the preview), so measure once per show, not per move.
+      function measurePreview() {
+        previewWidth = preview.offsetWidth;
+        previewHeight = preview.offsetHeight;
+      }
       function updatePositionTarget() {
-        var bounds = preview.getBoundingClientRect();
         var gap = 18;
         var edge = 12;
         var x = pointerX + gap;
         var y = pointerY + gap;
 
-        if (x + bounds.width > window.innerWidth - edge) {
-          x = pointerX - bounds.width - gap;
+        if (x + previewWidth > window.innerWidth - edge) {
+          x = pointerX - previewWidth - gap;
         }
-        if (y + bounds.height > window.innerHeight - edge) {
-          y = pointerY - bounds.height - gap;
+        if (y + previewHeight > window.innerHeight - edge) {
+          y = pointerY - previewHeight - gap;
         }
 
-        x = Math.max(edge, Math.min(x, window.innerWidth - bounds.width - edge));
-        y = Math.max(edge, Math.min(y, window.innerHeight - bounds.height - edge));
+        x = Math.max(edge, Math.min(x, window.innerWidth - previewWidth - edge));
+        y = Math.max(edge, Math.min(y, window.innerHeight - previewHeight - edge));
 
         targetX = x;
         targetY = y;
@@ -881,6 +887,7 @@
         if (!canHover.matches || reduceMotion.matches) return;
 
         ensureRenderer();
+        measurePreview();
         pointerX = event.clientX;
         pointerY = event.clientY;
         updatePositionTarget();

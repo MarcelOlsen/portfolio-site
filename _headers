@@ -5,10 +5,10 @@
   Permissions-Policy: camera=(), geolocation=(), microphone=()
 
 /
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, stale-while-revalidate=86400
 
 /index.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, stale-while-revalidate=86400
 
 /dot.gif
   Cache-Control: public, max-age=86400
